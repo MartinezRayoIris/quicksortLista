@@ -1,0 +1,59 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package quiccksortlista;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author marti
+ */
+public class QuiccksortLista {
+
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       List <Integer> arr= new ArrayList<Integer>(); 
+       arr.add(4);
+        arr.add(2);
+        arr.add(3);
+        arr.add(1);
+        int izq=0, der=arr.size()-1;
+quicksort(arr,izq,der);
+   for(int li: arr){
+   System.out.println(li);
+   }
+    }
+     private static void quicksort(List<Integer> arr, int izq, int der){
+        int pivote=arr.get(izq),aux=0,i=izq,d=der;
+        while(i<d){
+        while(arr.get(i)<=pivote && i<d)
+            i++;
+        while(arr.get(d)>pivote)
+            d--;
+        
+        if(i<d){
+            int er;
+        aux=arr.get(i);
+        
+        arr.set(i,arr.get(d));
+        arr.set(d,aux);
+        
+        }
+        }
+        arr.set(izq,arr.get(d));
+        arr.set(d, pivote);
+        if(izq<d-1)
+            quicksort(arr,izq,d-1);
+        if(d+1 < der)
+            quicksort(arr,d+1,der);
+       }
+
+    
+}
